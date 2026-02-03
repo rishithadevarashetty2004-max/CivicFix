@@ -1,0 +1,241 @@
+/* App specific styles */
+
+/* Navigation styles */
+.nav-link {
+  @apply relative px-3 py-2 text-sm font-medium text-slate-700 hover:text-primary transition-colors;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link.active {
+  @apply text-primary;
+}
+
+.nav-link.active::after {
+  @apply w-full;
+}
+
+/* Hero section */
+.hero-gradient {
+  background: linear-gradient(135deg, #14532d 0%, #0f766e 100%);
+}
+
+/* Card shadow effect */
+.card-shadow {
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.card-shadow-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card-shadow-hover:hover {
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 0.15);
+  transform: translate(-2px, -2px);
+}
+
+/* Status colors */
+.status-open {
+  @apply bg-amber-100 text-amber-800 border-amber-300;
+}
+
+.status-in_progress {
+  @apply bg-blue-100 text-blue-800 border-blue-300;
+}
+
+.status-resolved_pending {
+  @apply bg-yellow-100 text-yellow-800 border-yellow-300;
+}
+
+.status-verified_resolved {
+  @apply bg-green-100 text-green-800 border-green-300;
+}
+
+.status-disputed {
+  @apply bg-red-100 text-red-800 border-red-300;
+}
+
+/* Neglect score colors */
+.neglect-low {
+  @apply text-green-600;
+}
+
+.neglect-medium {
+  @apply text-amber-600;
+}
+
+.neglect-high {
+  @apply text-orange-600;
+}
+
+.neglect-critical {
+  @apply text-red-600;
+}
+
+/* Map marker colors */
+.marker-open {
+  background-color: #f59e0b;
+}
+
+.marker-in_progress {
+  background-color: #3b82f6;
+}
+
+.marker-resolved_pending {
+  background-color: #eab308;
+}
+
+.marker-verified_resolved {
+  background-color: #22c55e;
+}
+
+.marker-disputed {
+  background-color: #ef4444;
+}
+
+/* Timeline connector */
+.timeline-connector {
+  @apply absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200;
+}
+
+/* Verification button styles */
+.verify-btn {
+  @apply flex flex-col items-center justify-center p-4 rounded-lg border-2 transition-all duration-200 cursor-pointer;
+}
+
+.verify-btn:hover {
+  transform: scale(1.05);
+}
+
+.verify-btn.selected {
+  @apply ring-2 ring-offset-2;
+}
+
+.verify-fixed {
+  @apply border-green-300 bg-green-50 text-green-700;
+}
+
+.verify-fixed.selected {
+  @apply bg-green-200 ring-green-500;
+}
+
+.verify-not-fixed {
+  @apply border-red-300 bg-red-50 text-red-700;
+}
+
+.verify-not-fixed.selected {
+  @apply bg-red-200 ring-red-500;
+}
+
+.verify-temporary {
+  @apply border-amber-300 bg-amber-50 text-amber-700;
+}
+
+.verify-temporary.selected {
+  @apply bg-amber-200 ring-amber-500;
+}
+
+.verify-partial {
+  @apply border-blue-300 bg-blue-50 text-blue-700;
+}
+
+.verify-partial.selected {
+  @apply bg-blue-200 ring-blue-500;
+}
+
+/* Proof pack styles */
+.proof-header {
+  @apply border-b-4 border-primary pb-4 mb-6;
+}
+
+.proof-section {
+  @apply mb-8 p-6 bg-white border border-slate-200 rounded-sm;
+}
+
+.proof-timeline-item {
+  @apply relative pl-8 pb-6 border-l-2 border-slate-200 last:border-l-transparent;
+}
+
+.proof-timeline-dot {
+  @apply absolute left-0 top-0 w-4 h-4 rounded-full border-2 border-white -translate-x-1/2;
+}
+
+/* Wizard steps */
+.wizard-step {
+  @apply relative flex items-center;
+}
+
+.wizard-step::after {
+  content: '';
+  @apply absolute top-1/2 left-full w-full h-0.5 bg-slate-200 -translate-y-1/2;
+}
+
+.wizard-step:last-child::after {
+  display: none;
+}
+
+.wizard-step.completed::after {
+  @apply bg-primary;
+}
+
+/* Animation for new items */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Filter panel */
+.filter-panel {
+  @apply bg-white border-r border-slate-200 p-4;
+}
+
+/* Feed list */
+.feed-item {
+  @apply transition-colors duration-150;
+}
+
+.feed-item:hover {
+  @apply bg-slate-50;
+}
+
+/* Map popup */
+.map-popup {
+  @apply p-0 rounded-lg overflow-hidden;
+}
+
+.map-popup .leaflet-popup-content-wrapper {
+  @apply rounded-lg shadow-lg;
+}
+
+.map-popup .leaflet-popup-content {
+  @apply m-0 p-0;
+}
+
+/* Category icon colors */
+.category-garbage_dump { @apply text-amber-600; }
+.category-sewage_leak { @apply text-purple-600; }
+.category-dead_animal { @apply text-gray-600; }
+.category-dustbin_overflow { @apply text-orange-600; }
+.category-road_damage { @apply text-stone-600; }
+.category-broken_streetlight { @apply text-yellow-600; }
+.category-illegal_construction { @apply text-red-600; }
+.category-water_contamination { @apply text-blue-600; }
+.category-air_pollution { @apply text-slate-600; }
+.category-noise_pollution { @apply text-pink-600; }
